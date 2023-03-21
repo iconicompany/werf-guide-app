@@ -28,7 +28,7 @@ jobs:
         run: 
 #         werf cr login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} git.iconicompany.com;
           #mkdir $HOME/.docker; echo 
-          docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} git.iconicompany.com
+          docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} git.iconicompany.com;
           werf converge --repo git.iconicompany.com/iconicompany/werf-guide-app
         env:
           WERF_KUBECONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
