@@ -4,7 +4,7 @@ metadata:
   name: werf-guide-app
 spec:
   rules:
-  - host: {{ $.Values.global.env-url }}
+  - host: {{ $.Values.global.host }}
     http:
       paths:
       - path: /werf-guide-app

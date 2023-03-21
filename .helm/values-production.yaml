@@ -1,2 +1,2 @@
 global:
-  env-url: https://devel.iconicompany.com
+  host: devel.iconicompany.com
