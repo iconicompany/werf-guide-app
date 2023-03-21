@@ -29,13 +29,5 @@ jobs:
           werf converge 
         env:
           WERF_KUBECONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
-          WERF_ENV: production
+          WERF_ENV: test
           WERF_REPO: git.iconicompany.com/iconicompany/werf-guide-app
-
-#      - name: Converge
-#        uses: werf/actions/converge@v1.2
-#        with:
-#          env: production
-#          kube-config-base64-data: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
-#        env:
-#          WERF_SET_ENV_URL: "global.host=devel.iconicompany.com"
