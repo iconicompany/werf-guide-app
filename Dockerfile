@@ -1,11 +1,13 @@
-FROM alpine:3.14
+FROM node:12-alpine
 WORKDIR /app
 
-# [<en>] Install app dependencies
-# [<ru>] Устанавливаем зависимости приложения
-RUN apk add --no-cache --update nmap-ncat
+# [<en>] Copy the files needed to install the application dependencies into the image.
+# [<ru>] Копируем в образ файлы, нужные для установки зависимостей приложения.
+COPY package.json package-lock.json ./
+# [<en>] Install the application dependencies.
+# [<ru>] Устанавливаем зависимости приложения.
+RUN npm ci
 
-# [<en>] Add to the image a script to run the echo server and set the permission to execution
-# [<ru>] Добавляем в образ скрипт для запуска эхо-сервера и устанавливаем разрешение на выполнение
-COPY start.sh .
-RUN chmod +x start.sh
+# [<en>] Copy all other application files into the image.
+# [<ru>] Копируем в образ все остальные файлы приложения.
+COPY . .
