@@ -7,7 +7,7 @@ spec:
   - host: {{ $.Values.global.host }}
     http:
       paths:
-      - path: /werf-guide-app
+      - path: /ping
         pathType: Prefix
         backend:
           service:
