@@ -1,2 +1,2 @@
-env:
-    domain: jupiter.icn.su
+global:
+  env-url: https://devel.iconicompany.com

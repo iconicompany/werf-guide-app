@@ -4,10 +4,10 @@ metadata:
   name: werf-guide-app
 spec:
   rules:
-  - host: werf-guide-app.{{ $.Values.env.domain }}
+  - host: {{ $.Values.global.env.url }}
     http:
       paths:
-      - path: /
+      - path: /werf-guide-app
         pathType: Prefix
         backend:
           service:
