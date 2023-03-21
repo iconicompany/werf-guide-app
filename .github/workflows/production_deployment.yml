@@ -21,10 +21,19 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - name: Converge
-        uses: werf/actions/converge@v1.2
-        with:
-          env: production
-          kube-config-base64-data: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
+      - name: Install werf
+        uses: werf/actions/install@v1.2
+      - name: Run script
+        run: |
+          werf converge --repo git.iconicompany.com/iconicompany/werf-guide-app
         env:
-          WERF_SET_ENV_URL: "global.host=devel.iconicompany.com"
+          WERF_KUBECONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
+          WERF_ENV: production
+
+#      - name: Converge
+#        uses: werf/actions/converge@v1.2
+#        with:
+#          env: production
+#          kube-config-base64-data: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
+#        env:
+#          WERF_SET_ENV_URL: "global.host=devel.iconicompany.com"
