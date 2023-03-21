@@ -1,7 +1,9 @@
 name: Production Deployment
 on:
   push:
-    branches: [master]
+    tags:
+    - v*
+#    branches: [master]
 jobs:
 
   converge:
