@@ -25,7 +25,7 @@ jobs:
         uses: werf/actions/install@v1.2
         
       - name: Run script
-      - run: 
+        run: 
           werf cr login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }} git.iconicompany.com;
           werf converge --repo git.iconicompany.com/iconicompany/werf-guide-app
         env:
