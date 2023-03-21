@@ -4,7 +4,7 @@ metadata:
   name: werf-guide-app
 spec:
   rules:
-  - host: werf-guide-app.jupiter.icn.su.
+  - host: werf-guide-app.jupiter.icn.su
     http:
       paths:
       - path: /
