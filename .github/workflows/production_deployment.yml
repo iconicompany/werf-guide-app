@@ -25,9 +25,9 @@ jobs:
         uses: werf/actions/install@v1.2
 
       - name: Run script
-        run: 
-          werf converge 
+        run:
+          werf converge
         env:
           WERF_KUBECONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
-          WERF_ENV: test
+          WERF_ENV: production
           WERF_REPO: git.iconicompany.com/iconicompany/werf-guide-app
