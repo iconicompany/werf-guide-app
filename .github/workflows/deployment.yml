@@ -32,5 +32,4 @@ jobs:
         env:
           WERF_KUBECONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
           WERF_ENV: production
-          WERF_VALUES_1: .helm/values-production.yaml
           WERF_REPO: git.iconicompany.com/iconicompany/werf-guide-app

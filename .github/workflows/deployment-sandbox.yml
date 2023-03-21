@@ -1,0 +1,34 @@
+name: Production Deployment
+on:
+  push:
+    branches: [sandbox]
+jobs:
+
+  converge:
+    name: Converge
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Login to Registry
+        uses: docker/login-action@v2
+        with:
+          registry: git.iconicompany.com
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Install werf
+        uses: werf/actions/install@v1.2
+
+      - name: Run script
+        run:
+          werf converge
+        env:
+          WERF_KUBECONFIG_BASE64: ${{ secrets.KUBE_CONFIG_BASE64_DATA }}
+          WERF_ENV: sandbox
+          WERF_VALUES_1: .helm/values-sanbox.yaml
+          WERF_REPO: git.iconicompany.com/iconicompany/werf-guide-app
